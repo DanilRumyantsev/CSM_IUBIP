@@ -4,6 +4,8 @@
 
 import pyttsx3
 import speech_recognition as sr
+from newspaper import Article
+import requests
 
 r = sr.Recognizer()
 mic = sr.Microphone()
@@ -34,8 +36,44 @@ def speak(text):
 
 speak("Привет! Я ваш ассистент. Чем могу помочь?")
 
+# Функция для парсинга статьи
+def parse_article(url):
+    try:
+        article = Article(url, language="ru")
+        article.download()
+        article.parse()
+        return article
+    except requests.RequestException as e:
+        print("Новости закончились. Возвращайтесь позже.")
+        return None
+
+article_url = "https://www.iubip.ru/news/282/"
+
+def get_events_text(article_url):
+    events_text = ""
+
+    while True:
+        article = parse_article(article_url)
+
+        if article is not None:
+            title = article.title
+            text = article.text[:500]
+            
+            events_text += f"Заголовок: {title}\nТекст статьи: {text}\n\n"
+
+            # Generate the URL for the next article
+            article_number = int(article_url.split("/")[-2])
+            next_article_number = article_number + 1
+            next_article_url = f"https://www.iubip.ru/news/{next_article_number}/"
+            article_url = next_article_url
+        else:
+            break
+
+    return events_text
+
 while True:
-    user_input = recognize_speech()  # Получаем голосовую команду
+    user_input = recognize_speech()  # Get voice command
+
     if user_input == "привет":
         speak("Привет! Как дела?")
     elif user_input == "пока":
@@ -43,5 +81,8 @@ while True:
         break
     elif user_input == "расписание":
         speak("Понедельник, пара номер 1 физкультура, пара номер 2 математика")
+    elif user_input == "мероприятия":
+        events_text = get_events_text(article_url)  # Perform article parsing
+        speak(events_text)  # Speak out the obtained text
     else:
         speak("Извините, я не понимаю. Попробуйте еще раз.")

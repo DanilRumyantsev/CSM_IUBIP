@@ -16,3 +16,4 @@ with mic as source:
 text = r.recognize_google(audio, language="ru-RU")
 
 print(f"Вы сказали: {text}")
+
