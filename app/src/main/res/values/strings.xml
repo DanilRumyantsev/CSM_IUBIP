@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CSM</string>
+    <string name="logo">ИУБиП</string>
+    <string name="hint_user_field">Введите сообщение...</string>
+    <string name="main_btn">Отправить</string>
+    <string name="no_user_input">Введите текст</string>
+    <string name="tts_error">Что-то пошло не так</string>
+</resources>
