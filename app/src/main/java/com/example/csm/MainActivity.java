@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                     Toast.makeText(MainActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
                 else {
                     // Получение текста из поля и преобразование в речь
-                    String text = user_field.getText().toString();
+                    String text =user_field.getText().toString();
                     speakText(text);
                 }
             }

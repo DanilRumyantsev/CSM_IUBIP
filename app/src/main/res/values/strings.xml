@@ -5,4 +5,5 @@
     <string name="main_btn">Отправить</string>
     <string name="no_user_input">Введите текст</string>
     <string name="tts_error">Что-то пошло не так</string>
+    <string name="message">.</string>
 </resources>
