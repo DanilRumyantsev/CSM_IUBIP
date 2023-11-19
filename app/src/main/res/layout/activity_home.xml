@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Голосовой ассистент -\nИУБИП"
+        android:textAlignment="center"
+        android:textColor="@color/color2"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnnext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="500sp"
+        android:backgroundTint="@color/color2"
+        android:fontFamily="@font/montserrat_bold"
+        android:onClick="startNewActivity"
+        android:text="@string/next"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#757575"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="20sp"
+        android:text="Голосовой ассистент университетского
+        сообщества - ваш надежный гид по академическим запросам, отвечающий на вопросы, предоставляющий обновления и помогающий в быстром доступе к ключевой информации в учебной среде." />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="20sp"
+        app:srcCompat="@drawable/iubip" />
+
+
+</RelativeLayout>
+
